@@ -88,6 +88,8 @@ function networkUp() {
     echo "ERROR !!!! Unable to start network"
     exit 1
   fi
+  echo "Waiting for initializing containers..."
+  sleep 10
   # now run the end to end script
   docker exec cli scripts/script.sh $CHANNEL_NAME $CLI_DELAY node $CLI_TIMEOUT $VERBOSE
   if [ $? -ne 0 ]; then
